@@ -4,7 +4,9 @@ from selenium.webdriver.common.keys import Keys
 
 class TestAdmin(object):
     def setup_method(self):
-        self.driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        self.driver = webdriver.Chrome(options=options)
         
     def teardown_method(self):
         self.driver.quit()
